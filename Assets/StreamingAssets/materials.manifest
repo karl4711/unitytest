@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1411980920
+CRC: 1482953863
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa79678da8a83e598477f0359666f869
+    Hash: 85e8b24078dfa3563367786ebbe2d5d0
   TypeTreeHash:
     serializedVersion: 2
     Hash: 20d2a047ae4e99a3eaf853982df4d9aa
@@ -20,5 +20,5 @@ Assets:
 - Assets/Materials/ScrollingUVs.mat
 - Assets/Materials/LogoFlash.mat
 Dependencies:
-- E:/Projects/Unity Projects/unitytest/Assets/StreamingAssets/shaders
-- E:/Projects/Unity Projects/unitytest/Assets/StreamingAssets/textures
+- C:/Users/Karl/Projects/Unity/unitytest/Assets/StreamingAssets/textures
+- C:/Users/Karl/Projects/Unity/unitytest/Assets/StreamingAssets/shaders

@@ -3,7 +3,7 @@ CRC: 681765298
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a8d742396c58b96baf5c3d20161d8b64
+    Hash: 65db9c49bbddc8a76428663033a76acd
   TypeTreeHash:
     serializedVersion: 2
     Hash: a0b27f1896879fabeee0b59ecd620256
@@ -37,5 +37,5 @@ Assets:
 - Assets/Prefabs/1.prefab
 - Assets/Prefabs/2.prefab
 Dependencies:
-- E:/Projects/Unity Projects/unitytest/Assets/StreamingAssets/textures
-- E:/Projects/Unity Projects/unitytest/Assets/StreamingAssets/materials
+- C:/Users/Karl/Projects/Unity/unitytest/Assets/StreamingAssets/textures
+- C:/Users/Karl/Projects/Unity/unitytest/Assets/StreamingAssets/materials

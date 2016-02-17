@@ -2,21 +2,21 @@ ManifestFileVersion: 0
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: prefabs
-      Dependencies:
-        Dependency_0: textures
-        Dependency_1: materials
-    Info_1:
       Name: scenes
+      Dependencies: {}
+    Info_1:
+      Name: textures
       Dependencies: {}
     Info_2:
       Name: shaders
       Dependencies: {}
     Info_3:
-      Name: textures
-      Dependencies: {}
-    Info_4:
       Name: materials
       Dependencies:
-        Dependency_0: shaders
-        Dependency_1: textures
+        Dependency_0: textures
+        Dependency_1: shaders
+    Info_4:
+      Name: prefabs
+      Dependencies:
+        Dependency_0: textures
+        Dependency_1: materials

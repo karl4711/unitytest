@@ -62,16 +62,15 @@ public class LoadAssetBundle : MonoBehaviour {
         else
         {
             AssetBundle ab = www.assetBundle;
-            GameObject gobj = ab.LoadAsset("prefabs") as GameObject;
-            if (gobj != null)
-            { 
-               Instantiate(gobj);
-            }
+			GameObject[] gos = ab.LoadAllAssets<GameObject> ();
+			foreach (GameObject go in gos) {
+				Instantiate (go);
+			}
             ab.Unload(false);
         }
-        foreach (AssetBundle ab in dependencyBundles)
+		foreach (AssetBundle dependencyBundle in dependencyBundles)
         {
-            ab.Unload(false);
+            dependencyBundle.Unload(false);
         }
 
 
