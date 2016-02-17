@@ -3,44 +3,88 @@ using System.Collections;
 
 public class LoadAssetBundle : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    private string bundlePath;
 
+
+    void Awake()
+    {
+        bundlePath = string.Format("file://{0}/", Application.streamingAssetsPath);
+    }
+
+	// Use this for initialization
+	void Start ()
+    {
+        //Debug.Log(Application.persistentDataPath);
         unpackageTest();
-	}
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 
 
     public void unpackageTest()
     {
-        StartCoroutine(LoadBundle("package3.assetbundle"));
+       
+       StartCoroutine(LoadBundle("StreamingAssets"));
     }
 
-    IEnumerator LoadBundle(string bundlePath)
+    IEnumerator LoadBundle(string bundleName)
     {
 
         //AssetBundle.CreateFromFile()
 
-        WWW www = new WWW(string.Format("file://{0}/{1}", Application.streamingAssetsPath, bundlePath));
+        WWW mwww = WWW.LoadFromCacheOrDownload(bundlePath + bundleName, 0);
+        yield return mwww;
+
+        AssetBundle bundle = mwww.assetBundle;
+
+        AssetBundleManifest mainfest = (AssetBundleManifest)bundle.LoadAsset("AssetBundleManifest");
+        bundle.Unload(false);
+
+        string[] dependencyNames = mainfest.GetAllDependencies("prefabs");
+        AssetBundle[] dependencyBundles = new AssetBundle[dependencyNames.Length];
+        for (int i = 0; i < dependencyNames.Length; i++)
+        {
+            WWW dwww = WWW.LoadFromCacheOrDownload(bundlePath + dependencyNames[i], mainfest.GetAssetBundleHash(dependencyNames[i]));
+            yield return dwww;
+            dependencyBundles[i] = dwww.assetBundle;
+        }
+
+        WWW www = WWW.LoadFromCacheOrDownload(bundlePath + "prefabs", 0);
         yield return www;
-
-        AssetBundle bundle = www.assetBundle;
-        Object[] objs = bundle.LoadAll();
-        foreach (Object obj in objs)
+        if (!string.IsNullOrEmpty(www.error))
         {
-            Debug.Log(obj.name + ": " + obj.GetType());
+            Debug.Log(www.error);
+        }
+        else
+        {
+            AssetBundle ab = www.assetBundle;
+            GameObject gobj = ab.LoadAsset("prefabs") as GameObject;
+            if (gobj != null)
+            { 
+               Instantiate(gobj);
+            }
+            ab.Unload(false);
+        }
+        foreach (AssetBundle ab in dependencyBundles)
+        {
+            ab.Unload(false);
         }
 
 
-        if (www.error != null)
-        {
-            Debug.LogError("Load Bundle Failed " + bundlePath + " Error Is " + www.error);
-            yield break;
-        }
-        //Do something ...
+        // Load the TextAsset object
+        //TextAsset txt = bundle.LoadAsset("TestScript2", typeof(TextAsset)) as TextAsset;
+
+        // Load the assembly and get a type (class) from it
+        //var assembly = System.Reflection.Assembly.Load(txt.bytes);
+        //var type = assembly.GetType("TestScript2");
+
+        //// Instantiate a GameObject and add a component with the loaded class
+        //GameObject go = new GameObject();
+        //go.AddComponent(type);
+
     }
 }

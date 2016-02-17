@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 1009531911
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 613b8f591b51ba7a807e33bc0dc87c62
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1094ce4a8b63a0cc7870d736bb694a93
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Shaders/LogoFlash.shader
+- Assets/Shaders/ScrollingUVs.shader
+Dependencies: []
