@@ -1,0 +1,50 @@
+ManifestFileVersion: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: lua/enginemain.lua.unity3d
+      Dependencies: {}
+    Info_1:
+      Name: lua/luademoa.lua.unity3d
+      Dependencies: {}
+    Info_2:
+      Name: lua/luademob.lua.unity3d
+      Dependencies: {}
+    Info_3:
+      Name: materials/lambert1.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: materials/logoflash.unity3d
+      Dependencies:
+        Dependency_0: shaders/logoflash.unity3d
+        Dependency_1: textures/0670.unity3d
+    Info_5:
+      Name: materials/scrollinguvs.unity3d
+      Dependencies:
+        Dependency_0: shaders/scrollinguvs.unity3d
+    Info_6:
+      Name: prefabs/1.unity3d
+      Dependencies:
+        Dependency_0: lua/luademoa.lua.unity3d
+        Dependency_1: materials/logoflash.unity3d
+        Dependency_2: textures/0902.unity3d
+    Info_7:
+      Name: prefabs/2.unity3d
+      Dependencies:
+        Dependency_0: lua/luademob.lua.unity3d
+        Dependency_1: materials/logoflash.unity3d
+    Info_8:
+      Name: shaders/logoflash.unity3d
+      Dependencies: {}
+    Info_9:
+      Name: shaders/scrollinguvs.unity3d
+      Dependencies: {}
+    Info_10:
+      Name: textures/0670.unity3d
+      Dependencies: {}
+    Info_11:
+      Name: textures/0890.unity3d
+      Dependencies: {}
+    Info_12:
+      Name: textures/0902.unity3d
+      Dependencies: {}

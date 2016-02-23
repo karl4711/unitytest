@@ -1,0 +1,11 @@
+
+local sphereComponent = {}
+
+sphereComponent.text = "Hello World"
+
+function sphereComponent:Awake( gameObject )
+	Debug.Log(gameObject.name.."Awake")
+	-- TestScript1.print()
+end
+
+return sphereComponent

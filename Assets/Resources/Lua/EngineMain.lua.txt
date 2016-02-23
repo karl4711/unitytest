@@ -1,0 +1,29 @@
+-- 加载常用的Unity接口
+
+luanet.load_assembly('UnityEngine')
+luanet.load_assembly('Assembly-CSharp')
+
+--导入引擎常用的class
+Debug = UnityEngine.Debug
+SceneManager = UnityEngine.SceneManagement.SceneManager
+GameObject = UnityEngine.GameObject
+Transform = UnityEngine.Transform
+Vector3 = UnityEngine.Vector3
+Time = UnityEngine.Time
+
+local engineComponent = {}
+
+function engineComponent:Awake( gameObject )
+
+	--导入游戏项目常用的组件
+	-- LuaComponent = luanet.import_type('LuaComponent')
+	Debug.Log(gameObject.name.."Awake")
+end
+
+
+function engineComponent:Start( gameObject )
+end
+
+return engineComponent
+
+

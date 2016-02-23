@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 1235210951
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3abd6fedc216d5209930df13ef10b6d6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: eb2757eac30f0cc0abd90c4f09c2db98
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Materials/ScrollingUVs.mat
+Dependencies:
+- Assets/StreamingAssets/Windows/shaders/scrollinguvs.unity3d

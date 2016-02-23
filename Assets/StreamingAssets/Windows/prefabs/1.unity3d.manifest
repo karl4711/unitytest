@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 1187901815
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 13350b5c7b6f6a089258a1949823969a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 563e32103453e1101f88ce4993c0ce8a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: d9693b18af5ff494e9880edc35abc35a, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Prefabs/1.prefab
+Dependencies:
+- Assets/StreamingAssets/Windows/lua/luademoa.lua.unity3d
+- Assets/StreamingAssets/Windows/materials/logoflash.unity3d
+- Assets/StreamingAssets/Windows/textures/0902.unity3d

@@ -45,6 +45,10 @@ public class LoadAssetBundle : MonoBehaviour {
         bundle.Unload(false);
 
         string[] dependencyNames = mainfest.GetAllDependencies("prefabs");
+		foreach (string n in dependencyNames) {
+			Debug.Log ("dependencyNames: "+n);
+		}
+
         AssetBundle[] dependencyBundles = new AssetBundle[dependencyNames.Length];
         for (int i = 0; i < dependencyNames.Length; i++)
         {
@@ -62,9 +66,11 @@ public class LoadAssetBundle : MonoBehaviour {
         else
         {
             AssetBundle ab = www.assetBundle;
+
 			GameObject[] gos = ab.LoadAllAssets<GameObject> ();
 			foreach (GameObject go in gos) {
-				Instantiate (go);
+				Debug.Log("Object: " + go.name + "  position: " + go.transform.position);
+				Instantiate (go, go.transform.position, go.transform.rotation);
 			}
             ab.Unload(false);
         }
@@ -72,18 +78,5 @@ public class LoadAssetBundle : MonoBehaviour {
         {
             dependencyBundle.Unload(false);
         }
-
-
-        // Load the TextAsset object
-        //TextAsset txt = bundle.LoadAsset("TestScript2", typeof(TextAsset)) as TextAsset;
-
-        // Load the assembly and get a type (class) from it
-        //var assembly = System.Reflection.Assembly.Load(txt.bytes);
-        //var type = assembly.GetType("TestScript2");
-
-        //// Instantiate a GameObject and add a component with the loaded class
-        //GameObject go = new GameObject();
-        //go.AddComponent(type);
-
     }
 }
