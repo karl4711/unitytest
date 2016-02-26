@@ -14,6 +14,9 @@ public class TestLoader : MonoBehaviour
 
     AssetBundleFetcher assetBundleFetcher;
 
+    // 是否从服务器更新
+    bool isUpdate = false;
+
     void Awake()
     {
         assetBundleLoader = GameObject.Find("AssetBundleLoader").GetComponent<AssetBundleLoader>();
@@ -22,16 +25,39 @@ public class TestLoader : MonoBehaviour
 
     void Start()
     {
-        DownloadRes(delegate
-       {
-           prefabList = new List<PrefabAttr>()
-           {
-                new PrefabAttr("1", new Vector3(-100, -100, 0),true),
-                new PrefabAttr("2", new Vector3(100, 100, 0), true)
-           };
-           LoadLocalRes(prefabList);
-       });
+        prefabList = new List<PrefabAttr>()
+        {
+            new PrefabAttr("1", new Vector3(-100, -100, 0),true),
+            new PrefabAttr("2", new Vector3(100, 100, 0), true)
+        };
+
+        if (isUpdate)
+        {
+            UpdateTest();
+        }
+        else
+        {
+            LocalTest();
+        }
     }
+
+    void UpdateTest()
+    {
+        DownloadRes(delegate
+        {
+            LoadLocalRes(prefabList);
+        });
+
+    }
+
+    void LocalTest()
+    {
+        assetBundleFetcher.LoadLocalFileDict(delegate
+        {
+            LoadLocalRes(prefabList);
+        });
+    }
+
 
     /// <summary>
     /// 下载服务器资源

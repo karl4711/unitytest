@@ -39,7 +39,7 @@ public class AssetBundleLoader : MonoBehaviour
                 List<UnityEngine.Object> objList = new List<UnityEngine.Object>();
                 foreach (WWW www in wwws)
                 {
-                    Debug.Log(www.url);
+                    //Debug.Log(www.url);
                     AssetBundle assetBundle = www.assetBundle;
                     UnityEngine.Object[] objs = assetBundle.LoadAllAssets<UnityEngine.Object>();//LoadAsset(name）,这个name没有后缀,eg:panel
 
@@ -69,7 +69,7 @@ public class AssetBundleLoader : MonoBehaviour
     /// <param name="action"></param>
     private void LoadDependenceAssets(List<string> targetAssetNames, Action<List<AssetBundle>> action)
     {
-        targetAssetNames.ForEach(n => Debug.Log("targetAssetName:" + n));//ui/panel.unity3d
+        //targetAssetNames.ForEach(n => Debug.Log("targetAssetName:" + n));//ui/panel.unity3d
 
         Action<AssetBundleManifest> dependenceAction = (manifest) =>
         {
@@ -119,7 +119,7 @@ public class AssetBundleLoader : MonoBehaviour
     {
         string manifestName = CommonUtil.Instance.GetRuntimePlatform();
         manifestName = manifestName + "/" + manifestName;//eg:Windows/Windows
-        Debug.Log("manifestName: " + manifestName);
+        //Debug.Log("manifestName: " + manifestName);
 
         FetchResReturnWWW(new List<string> { manifestName }, (www) =>
         {

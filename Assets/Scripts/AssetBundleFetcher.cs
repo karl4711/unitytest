@@ -28,6 +28,7 @@ public class AssetBundleFetcher : MonoBehaviour
     private static string serverVersion;
 
     private static List<string> fetchFileList = new List<string>();
+    private static List<string> removeFileList = new List<string>();
 
     void Awake()
     {
@@ -55,12 +56,24 @@ public class AssetBundleFetcher : MonoBehaviour
             {
                 CommonUtil.Instance.ReplaceLocalFile(Path.Combine(localAssetPath, www.url.Replace(serverAssetPath, "")), www.bytes);
             });
-            //覆盖manifest.
-
 
             //覆盖filedict, version.
             File.WriteAllText(localVersionPath, serverVersion);
             File.WriteAllText(localFileDictPath, serverFileDictText);
+
+            //删除本地文件
+            removeFileList.ForEach(f =>
+                        {
+                            try
+                            {
+                                File.Delete(Path.Combine(localAssetPath, f));
+                                File.Delete(Path.Combine(localAssetPath, f + ".meta")); //need do this?
+                            }
+                            catch (Exception e) {
+                                Debug.Log("delete file failed.\n" + e);
+                            }
+                        }
+                    );
 
             callback();
         };
@@ -70,7 +83,7 @@ public class AssetBundleFetcher : MonoBehaviour
             List<string> fetchPathList = new List<string>();
             fetchFileList.ForEach(f => fetchPathList.Add(serverAssetPath + f));
 
-            fetchPathList.ForEach(p => Debug.Log("fetchPathList: " + p));
+            //fetchPathList.ForEach(p => Debug.Log("fetchPathList: " + p));
 
             StartCoroutine(CommonUtil.Instance.FetchMultRes(fetchPathList, fetchWWWsFinishedAction));
         };
@@ -87,15 +100,27 @@ public class AssetBundleFetcher : MonoBehaviour
     {
         Action fetchServerFileDictFinishedAction = delegate
         {
+            // 添加本地没有的文件到fetch list
             serverFileDict.Where(
-                        kv => !localFileDict.ContainsKey(kv.Key) || localFileDict[kv.Key] != kv.Value)
+                        kv => !localFileDict.ContainsKey(kv.Key))
                         .ToList().ForEach(
                             kv => fetchFileList.Add(string.Format("{0}_{1}.unity3d", kv.Key, kv.Value))
                     );
-            //add manifest file to fetch list
+            // 添加有更新的文件到fetch list, 本地文件到remove list
+            serverFileDict.Where(
+                        kv => localFileDict[kv.Key] != kv.Value)
+                        .ToList().ForEach(
+                            kv =>
+                            {
+                                fetchFileList.Add(string.Format("{0}_{1}.unity3d", kv.Key, kv.Value));
+                                removeFileList.Add(string.Format("{0}_{1}.unity3d", kv.Key, localFileDict[kv.Key]));
+                            });
+
+            //添加manifest文件到fetch list
             fetchFileList.Add(platform);
 
             //fetchFileList.ForEach(f => Debug.Log("fetchFileList: " + f));
+            //removeFileList.ForEach(f => Debug.Log("removeFileList: " + f));
 
             callback();
         };
@@ -142,7 +167,7 @@ public class AssetBundleFetcher : MonoBehaviour
     {
         Action<string> loadLocalFileFinishedAction = (text) =>
         {
-            string[] strs = text.Split('\r','\n');
+            string[] strs = text.Split('\r', '\n');
             strs.ToList().ForEach(a =>
             {
                 if (a.Trim() != "")

@@ -32,5 +32,5 @@ ClassTypes:
 Assets:
 - Assets/Resources/Prefabs/2.prefab
 Dependencies:
-- Assets/StreamingAssets/Windows/lua/luademob.lua_ae1365756c61179f474582ab183edcc7.unity3d
+- Assets/StreamingAssets/Windows/lua/luademob.lua_d757381caae96b1a562144d062a943ee.unity3d
 - Assets/StreamingAssets/Windows/materials/logoflash_478ec3d0db7598a096810e0ecdbde56d.unity3d

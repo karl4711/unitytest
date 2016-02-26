@@ -2,13 +2,13 @@ ManifestFileVersion: 0
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: lua/enginemain.lua_51424b26eac982f09290ec151349992b.unity3d
+      Name: lua/enginemain.lua_62f80c0ff3d98381ecbc94994d71f860.unity3d
       Dependencies: {}
     Info_1:
       Name: lua/luademoa.lua_67d3f01799c6c698285999fdf38dfe23.unity3d
       Dependencies: {}
     Info_2:
-      Name: lua/luademob.lua_d757381caae96b1a562144d062a943ee.unity3d
+      Name: lua/luademob.lua_b81f738e5f37aaac7b830cd1d81cd530.unity3d
       Dependencies: {}
     Info_3:
       Name: materials/lambert1_3578fc4a697e55c83d4acdfdc207c6d4.unity3d
@@ -31,7 +31,7 @@ AssetBundleManifest:
     Info_7:
       Name: prefabs/2_ab27be1b9ba73ad87cab325699cbe10c.unity3d
       Dependencies:
-        Dependency_0: lua/luademob.lua_d757381caae96b1a562144d062a943ee.unity3d
+        Dependency_0: lua/luademob.lua_b81f738e5f37aaac7b830cd1d81cd530.unity3d
         Dependency_1: materials/logoflash_478ec3d0db7598a096810e0ecdbde56d.unity3d
     Info_8:
       Name: shaders/logoflash_3af0981638c0ed1e52458e6eca53f258.unity3d

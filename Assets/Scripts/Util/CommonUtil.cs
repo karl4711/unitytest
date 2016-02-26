@@ -84,7 +84,7 @@ public class CommonUtil
     /// <param name="res"></param>
     public void ReplaceLocalFile(string url, byte[] res)
     {
-        //Debug.Log(url);
+        //Debug.Log("ReplaceLocalFile: " + url);
         //Debug.Log(res.Length);
         FileStream file = new FileStream(url, FileMode.OpenOrCreate);
         file.Write(res, 0, res.Length);
