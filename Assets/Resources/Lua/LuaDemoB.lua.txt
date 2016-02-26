@@ -4,7 +4,7 @@ local sphereComponent = {}
 sphereComponent.text = "Hello World"
 
 function sphereComponent:Awake( gameObject )
-	Debug.Log(gameObject.name.."Awake")
+	Debug.Log(gameObject.name.."Awake, version 4")
 	-- TestScript1.print()
 end
 

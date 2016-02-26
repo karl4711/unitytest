@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 2396893772
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 51424b26eac982f09290ec151349992b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 1033bf7ddfd4c6d43e7a6382c0a0a61a
+HashAppended: 1
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Lua/EngineMain.lua.txt
+Dependencies: []

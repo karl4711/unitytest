@@ -17,7 +17,7 @@ function engineComponent:Awake( gameObject )
 
 	--导入游戏项目常用的组件
 	-- LuaComponent = luanet.import_type('LuaComponent')
-	Debug.Log(gameObject.name.."Awake")
+	Debug.Log(gameObject.name.." Awake..")
 end
 
 

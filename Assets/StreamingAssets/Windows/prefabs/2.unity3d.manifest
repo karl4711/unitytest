@@ -1,13 +1,13 @@
 ManifestFileVersion: 0
-CRC: 3112797593
+CRC: 3425060729
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a50db9a76f27c15ec713109a7728755a
+    Hash: ab27be1b9ba73ad87cab325699cbe10c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0217d84d84459a8b4c7c22ff8177c948
-HashAppended: 0
+HashAppended: 1
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
@@ -32,5 +32,5 @@ ClassTypes:
 Assets:
 - Assets/Resources/Prefabs/2.prefab
 Dependencies:
-- Assets/StreamingAssets/Windows/lua/luademob.lua.unity3d
-- Assets/StreamingAssets/Windows/materials/logoflash.unity3d
+- Assets/StreamingAssets/Windows/lua/luademob.lua_ae1365756c61179f474582ab183edcc7.unity3d
+- Assets/StreamingAssets/Windows/materials/logoflash_478ec3d0db7598a096810e0ecdbde56d.unity3d
